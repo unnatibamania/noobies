@@ -1,5 +1,9 @@
+"use client";
+
 import { Input } from "@/components/ui/input";
 import { Button } from "../ui/button";
+
+import { useRouter } from "next/navigation";
 
 import {
   Popover,
@@ -12,6 +16,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Plus } from "lucide-react";
 
 export const Header = () => {
+  const router = useRouter();
+
   return (
     <div className="flex justify-between  items-center p-2 shadow-md">
       {/* left section */}
@@ -22,7 +28,7 @@ export const Header = () => {
 
       {/* right section */}
       <div className="flex items-center gap-x-2">
-        <Button size={"default"}>
+        <Button size={"default"} onClick={() => router.push("/create")}>
           <Plus />
           <span className="ml-2">Create</span>
         </Button>
